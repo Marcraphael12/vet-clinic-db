@@ -42,3 +42,8 @@ WHERE name LIKE '%mon';
 UPDATE animals 
 SET species = 'pokemon'
 WHERE species = 'unspecified';
+
+-- Inside a transaction delete all records in the animals table, then roll back the transaction.
+DELETE 
+FROM animals;
+ROLLBACK;
