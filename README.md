@@ -53,7 +53,7 @@ After you're finished please remove all the comments and instructions!
 
 > Describe your project in 1 or 2 sentences.
 
-**[your_project__name]** is a complete database with data about: animals, animals' owners, clinic employees, and visits
+[Vet clinic DB] is a complete database with data about: animals, animals' owners, clinic employees, and visits
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -121,7 +121,7 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 
-clone the repo: <code>git clone git@github.com:Marcraphael12/vet-clinic.git</code><br>
+clone the repo: <code>git clone git@github.com:Marcraphael12/vet-clinic-db.git</code><br>
 jump to the active branch: <code>git checkout [branch name]</code><br>
 
 ### Usage
@@ -165,7 +165,7 @@ To run the project:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Marcraphael12/vet-clinic/issues/).
+Feel free to check the [issues page](https://github.com/Marcraphael12/vet-clinic-db/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -209,7 +209,7 @@ I would like to thank...
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./MIT) licensed.
+This project is [MIT](./MIT.md) licensed.
 
 _NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
