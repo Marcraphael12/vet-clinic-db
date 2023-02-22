@@ -10,3 +10,9 @@ CREATE TABLE animals (
 	species varchar(50) NOT NULL,
 	PRIMARY KEY (id)
 );
+
+create table owners (
+	owners_id INT primary key generated always as identity,
+	full_name varchar(100) ,
+	age INT
+);
