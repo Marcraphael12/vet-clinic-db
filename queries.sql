@@ -63,3 +63,27 @@ rollback to SP1
 
 -- Commit transaction
 commit
+
+-- Write queriesd to answer the following questions:
+-- How many animals are there?
+select count(*) as number_of_animals from animals;
+
+-- How many animals have never tried to escape?
+select count(*) as animals_never_escaped from animals
+where escape_attempts = 0; 
+
+-- What is the average weight of animals?
+select avg(weight_kg) as average_weight from animals;
+
+-- Who escapes the most, neutered or not neutered animals?
+select count(escape_attempts)as escape_attempts, neutered from animals
+group by (neutered);
+
+-- What is the minimum and maximum weight of each type of animal?
+select min(weight_kg) as minimal_weight, max(weight_kg) as max_weight, species from animals
+group by(species);
+
+-- What is the average number of escape attempts per animal type of those born between 1990 and 2000?
+select avg(escape_attempts) as average_attempts, species from animals
+where date_of_birth between '01-01-1990' and '31-12-2000'
+group by(species)
