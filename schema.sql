@@ -21,3 +21,6 @@ create table species (
 	id INT primary key generated always as identity,
 	name varchar(100)
 );
+
+-- Remove column species
+alter table animals drop column species;
