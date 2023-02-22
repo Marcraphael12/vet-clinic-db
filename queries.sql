@@ -47,3 +47,19 @@ WHERE species = 'unspecified';
 DELETE 
 FROM animals;
 ROLLBACK;
+
+-- Inside a transaction Delete all animals born after Jan 1st, 2022.
+begin;
+delete from animals where date_of_birth > '01-01-2022';
+
+-- Create a savepoint for the transaction.
+SAVEPOINT sp1;
+
+-- Update all animals' weight to be their weight multiplied by -1.
+UPDATE animals SET weight_kg = weight_kg * -1;
+
+-- Rollback to the savepoint
+rollback to SP1
+
+-- Commit transaction
+commit
