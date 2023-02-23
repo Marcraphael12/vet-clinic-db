@@ -39,3 +39,24 @@ where name like '%mon';
 update animals
 set species_id = (select id from species where name = 'Pokemon')
 where species_id is NULL;
+
+-- Modify the inserted animals to include owner information (owner_id):
+-- Sam Smith owns Agumon.
+update animals
+set owner_id = (select owners_id from owners where full_name = 'Sam Smith') where name = 'Agumon';
+
+-- Jennifer Orwell owns Gabumon and Pikachu.
+update animals
+set owner_id = (select owners_id from owners where full_name = 'Jennifer Orwell') where name = 'Gabumon' or name = 'Pikachu';
+
+-- Bob owns Devimon and Plantmon.
+update animals
+set owner_id = (select owners_id from owners where full_name = 'Bob') where name = 'Devimon' or name = 'Plantmon';
+
+-- Melody Pond owns Charmander, Squirtle, and Blossom.
+update animals
+set owner_id = (select owners_id from owners where full_name = 'Melody Pond') where name = 'Charmander' or name = 'Squirtle' or name = 'Blossom';
+
+-- Dean Winchester owns Angemon and Boarmon.
+update animals
+set owner_id = (select owners_id from owners where full_name = 'Dean Winchester') where name = 'Angemon' or name = 'Boarmon';
