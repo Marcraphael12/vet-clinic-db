@@ -23,4 +23,8 @@ insert into owners (full_name, age) values
 	('Melody Pond', 77),
 	('Dean Winchester', 14),
 	('Jodie Whittaker', 38);
-select * from owners
+
+-- update the species table
+insert into species (name) values
+	('Pokemon'),
+	('Digimon');
