@@ -37,3 +37,18 @@ create table vets (
 	age int,
 	date_of_graduation date
 );
+
+-- There is a many-to-many relationship between the tables species and vets:
+-- Create a "join table" called specializations to handle this relationship
+create table specializations (
+	vets_id int references vets(id) on delete cascade on update cascade,
+	species_id int references species(id) on delete cascade on update cascade 
+);
+
+-- There is a many-to-many relationship between the tables animals and vets
+-- Create a "join table" called visits to handle this relationship
+create table visists (
+	vets_id int references vets(id) on delete cascade on update cascade,
+	id int references animals(id) on delete cascade on update cascade,
+	date_of_visit date
+);
