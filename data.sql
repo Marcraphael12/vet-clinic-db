@@ -28,3 +28,14 @@ insert into owners (full_name, age) values
 insert into species (name) values
 	('Pokemon'),
 	('Digimon');
+
+-- Modify the inserted animals so it includes the species_id value
+-- If the name ends in "mon" it will be Digimon
+update animals 
+set species_id = (select id from species where name = 'Digimon')
+where name like '%mon';
+
+-- All other animals are Pokemon
+update animals
+set species_id = (select id from species where name = 'Pokemon')
+where species_id is NULL;
