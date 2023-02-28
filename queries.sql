@@ -1,36 +1,36 @@
 -- Queries that provide answers to the questions from all projects.
 
 -- Find all animals whose name ends in "mon".
-SELECT * from animals WHERE name like '%mon';
+select * from animals WHERE name like '%mon';
 
 -- List the name of all animals born between 2016 and 2019.
-SELECT name FROM animals WHERE date_of_birth >= '2016-01-01' AND date_of_birth <= '2019-12-31';
+select name from animals WHERE date_of_birth >= '2016-01-01' AND date_of_birth <= '2019-12-31';
 
 -- List the name of all animals that are neutered and have less than 3 escape attempts.
-SELECT name FROM animals WHERE neutered = true AND escape_attempts < 3;
+select name from animals WHERE neutered = true AND escape_attempts < 3;
 
 -- List the date of birth of all animals named either "Agumon" or "Pikachu".
-SELECT date_of_birth FROM animals WHERE name = 'Agumon' OR name = 'Pikachu';
+select date_of_birth from animals WHERE name = 'Agumon' OR name = 'Pikachu';
 
 -- List name and escape attempts of animals that weight more than 10.5kg
-SELECT name, escape_attempts FROM animals WHERE weight_kg > 10.5;
+select name, escape_attempts from animals WHERE weight_kg > 10.5;
 
 --Find all animals that are neutered.
-SELECT name FROM animals where neutered = true;
+select name from animals where neutered = true;
 
 -- Find all animals not named Gabumon.
-SELECT name FROM animals WHERE name != 'Gabumon';
+select name from animals WHERE name != 'Gabumon';
 
 -- Find all animals with a weight between 10.4kg and 17.3kg (including the animals with the weights that equals precisely 10.4kg or 17.3kg)
-SELECT name FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
+select name from animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
 
 -- Inside a transaction update the animals table by setting the species column to unspecified
 UPDATE animals 
 SET species = 'unspecified';
 
 -- roll back the change and verify that the species columns went back to the state before the transaction
-SELECT name, species 
-FROM animals;
+select name, species 
+from animals;
 ROLLBACK;
 
 --Inside a transaction Update the animals table by setting the species column to digimon for all animals that have a name ending in mon.
@@ -45,7 +45,7 @@ WHERE species = 'unspecified';
 
 -- Inside a transaction delete all records in the animals table, then roll back the transaction.
 DELETE 
-FROM animals;
+from animals;
 ROLLBACK;
 
 -- Inside a transaction Delete all animals born after Jan 1st, 2022.
@@ -179,3 +179,7 @@ join visists on visists.id = animals.id
 join vets on vets.id = visists.vets_id and vets.name = 'Maisy Smith'
 group by species.name
 order by count(species.id) desc
+
+explain analyse select count(*) from visists where id = 4;
+explain analyse select * from visists where vets_id = 2;
+explain analyse select * from owners where email = 'owner_18327@mail.com';
